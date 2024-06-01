@@ -1,0 +1,19 @@
+{
+  "extends": ["next/core-web-vitals", "plugin:react/recommended", "plugin:react-hooks/recommended"],
+  "plugins": ["unused-imports"],
+  "rules": {
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"],
+    "quotes": ["error", "double"],
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": "warn",
+    "multiline-ternary": "off",
+    "no-use-before-define": "off",
+    "space-before-function-paren": "off",
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off",
+    "react/display-name": "off",
+    "react/react-in-jsx-scope": "off",
+    "@next/next/no-img-element": "off"
+  }
+}
