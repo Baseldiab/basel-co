@@ -1,9 +1,9 @@
 import Image from "next/image";
-import getTranslations from "../i18n-next";
+import getTranslations from "../i18n";
 import { LocalProps } from "../components/interfaces/locale.props.interface";
 import { LocaleParams } from "./layout";
 import { Metadata } from "next";
-
+import initTranslations from "../i18n";
 
 // export async function generateMetadata({
 //   params: { locale },
@@ -14,9 +14,8 @@ import { Metadata } from "next";
 //   return build_meta_data(locale, [t("pages.home")]);
 // }
 
-
 export default async function Home({ params: { locale } }: LocalProps) {
-  const { t } = await getTranslations(locale);
+  const { t } = await initTranslations(locale as any);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">

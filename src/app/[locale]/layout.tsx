@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import getTranslations from "../i18n-next";
+import getTranslations from "../i18n";
 import { TLocale } from "../components/interfaces/global.interfaces";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,11 +23,11 @@ export default async function RootLayout({
   params: ParamsType;
   children: React.ReactNode;
 }) {
-  const { resources, dir } = await getTranslations(locale);
-  console.log(dir);
+  // const { resources, dir } = await getTranslations(locale );
+  // console.log(dir);
 
   return (
-    <html lang={locale} dir={dir}>
+    <html lang={locale}>
       <body className={inter.className}>{children}</body>
     </html>
   );
