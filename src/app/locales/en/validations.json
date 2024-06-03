@@ -1,0 +1,14 @@
+    {
+        "required": "{{property}} is required.",
+        "numeric": "{{property}} must be numeric.",
+        "minValue": "{{property}} must be higher than {{min}}.",
+        "minLength": "{{property}} must have a min length of {{min}}.",
+        "maxLength": "{{property}} must have a max length of {{max}}.",
+        "photoSize": "Photo must be less than 5MB",
+        "photoType": "Photo type must be [jpeg, jpg, png, webp]",
+        "sameAsPassword": "Confirm password must be the same as Password",
+        "email": "Must be an email",
+        "other": "field is not valid",
+        "rating": "Must have a rate",
+        "search-min": "Search query cannot be empty"
+      }

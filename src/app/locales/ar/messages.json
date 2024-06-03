@@ -1,0 +1,14 @@
+{
+    "empty-wishlist": "قائمة الرغبات فارغة",
+    "empty-cart": "عربة التسوق فارغة",
+    "empty-addresses": "لا توجد عناوين",
+    "empty-products": "لا يوجد منتجات",
+    "empty-orders":"لا يوجد طلبات",
+    "added-to-cart-success": "تم إضافة المنتج في عربة التسوق بنجاح",
+    "unexpected_error": "حدث خطأ غير متوقع",
+    "operation-completed": "تم تنفيذ العملية بنجاح",
+    "please-submit-location":"من فضلك ادخل عنوان",
+    "not-found":"غير موجود",
+    "not-found-msg": "الصفحة التي تبحث عنها غير موجودة.",
+    "password-match": "كلمة المرور و تأكيد كلمة المرور غير متطابق"
+}
