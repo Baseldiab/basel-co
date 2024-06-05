@@ -1,7 +1,7 @@
 import Image from "next/image";
 import getTranslations from "../i18n";
 import { LocalProps } from "../interfaces/local.props.interface";
-import { build_meta_data } from "./layout";
+import { build_meta_data } from "./util/build.meta.data";
 // import { build_meta_data } from "./util/build.meta.data";
 
 export async function generateMetadata({ params: { locale } }: LocalProps) {
