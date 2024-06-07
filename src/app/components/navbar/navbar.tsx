@@ -1,12 +1,18 @@
 import { LocalProps } from "@/app/interfaces/local.props.interface";
 
-import React from "react";
-import { Row } from "antd";
+import { Col, Row } from "antd";
+import NavbarLogo from "./navbarLogo";
 
 const Navbar = ({ params: { locale } }: LocalProps) => {
   return (
     <nav>
-      <Row></Row>
+      <Row>
+        <Col span={8}>
+          <NavbarLogo />
+        </Col>
+        <Col span={8}></Col>
+        <Col span={8}></Col>
+      </Row>
     </nav>
   );
 };
