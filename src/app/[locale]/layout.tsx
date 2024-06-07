@@ -6,28 +6,12 @@ import { TLocale } from "../interfaces/global.interfaces";
 // import { build_meta_data } from "./util/build.meta.data";
 import getTranslations from "../i18n";
 import Navbar from "../components/navbar/navbar";
+import { build_meta_data } from "./util/build.meta.data";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export interface LocaleParams {
   locale: TLocale;
-}
-export async function build_meta_data(locale: TLocale, routes: string[] = []): Promise<Metadata> {
-  const { t } = await getTranslations(locale, ["fields"]);
-
-  // Check if routes is an array
-  if (!Array.isArray(routes)) {
-    console.error("Expected routes to be an array, but got:", typeof routes);
-    routes = []; // Fallback to an empty array if not
-  }
-
-  routes.push(t("app-name"));
-
-  return {
-    title: routes.join(" | "),
-    description: t("app-description"),
-    keywords: "",
-  };
 }
 
 interface ParamsType extends LocaleParams {}
