@@ -26,6 +26,10 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
+.myContainer {
+  @apply md:px-10 px-4 mx-auto;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

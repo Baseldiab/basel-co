@@ -13,5 +13,5 @@ export async function generateMetadata({ params: { locale } }: LocalProps) {
 export default async function Home({ params: { locale } }: LocalProps) {
   const { t } = await getTranslations(locale, ["fields"]);
 
-  return <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>;
+  return <main className="flex min-h-screen flex-col items-center justify-between"></main>;
 }
