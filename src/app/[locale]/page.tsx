@@ -17,8 +17,8 @@ export default async function Home({ params: { locale } }: LocalProps) {
   // console.log(home_data);
 
   return (
-    <main className="min-h-screen my-10">
+    <>
       <HomePage />
-    </main>
+    </>
   );
 }

@@ -34,7 +34,9 @@ export default function AddHomeProductDrawer({ open, onClose }: Props) {
       price: 0,
     };
 
-    Object.keys(init).forEach((e) => form.setFieldValue(e, init[e]));
+    Object.keys(init).forEach((e) =>
+      form.setFieldValue(e as keyof typeof init, init[e as keyof typeof init])
+    );
 
     return init;
   }, []);
