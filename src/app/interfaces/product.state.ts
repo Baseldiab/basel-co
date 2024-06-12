@@ -8,6 +8,7 @@ export interface ProductsState {
     sendGetProductsList: () => void;
     sendGetCategoriesList: () => void;
     sendGetItem: (id: string) => void;
+    sendGetCategoryProducts: (category: string) => void;
     sendGetSearchList: (query: string) => void;
     sendAdd: (v: ProductDto) => void;
     // sendUpdate: (v: ProductDto & { id: string }) => void;

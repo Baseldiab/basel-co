@@ -40,7 +40,7 @@ export default function RootLayout({
             locale: locale,
           }}
         />
-        {children}
+        <main className="min-h-screen my-10">{children}</main>
       </body>
     </html>
   );

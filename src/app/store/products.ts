@@ -6,6 +6,7 @@ import { get_single_product } from "../../../api/requests/getSingleProduct.reque
 import { ProductDto } from "../types/productDto";
 import { add_new_products } from "../../../api/requests/addPorduct.request";
 import { get_all_categories } from "../../../api/requests/getCategories.request";
+import { get_category_products } from "../../../api/requests/getCategoryProducts.request";
 
 export const useProductStore = create<ProductsState>()(
     devtools(
@@ -35,6 +36,11 @@ export const useProductStore = create<ProductsState>()(
         sendGetItem: async (id: string) => {
           const response = await get_single_product(id);
           set({ item: response });
+            },
+       
+            sendGetCategoryProducts: async (category: string) => {
+          const response = await get_category_products(category);
+          set({ list: response });
             },
         
             sendGetSearchList: async (query: string) => {
