@@ -22,7 +22,7 @@ export default function HomePage() {
   } = useProductStore();
 
   // STATES
-  const [openDrawer, setOpenDrawer] = useState<boolean>(true);
+  const [openDrawer, setOpenDrawer] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
@@ -77,7 +77,7 @@ export default function HomePage() {
         </Col>
 
         <Col md={19} xs={24}>
-          <Row className="w-full" justify="space-between">
+          <Row className="w-full" justify="space-between" gutter={[8, 8]}>
             <Col>
               <Search
                 placeholder="search for products"
@@ -101,7 +101,7 @@ export default function HomePage() {
                   className=""
                   // style={{ width: 240 }}
                   cover={
-                    <div className="p-4 flex justify-center items-center">
+                    <div className="p-4 !flex justify-center items-center mx-auto  w-full">
                       <Image
                         className="block  rounded-t-2xl mx-auto w-auto max-w-[100%] !h-[250px]"
                         alt={`${product.title} image`}
@@ -111,7 +111,10 @@ export default function HomePage() {
                   }
                 >
                   <Meta
-                    title={product.title}
+                    title={ <Link
+                      href={`/product/${product.id}`}
+                      className="flex justify-between items-center"
+                    > product.title </Link>}
                     description={
                       <Link
                         href={`/product/${product.id}`}

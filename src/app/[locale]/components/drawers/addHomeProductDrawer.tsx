@@ -5,7 +5,7 @@ import { Button, Col, Drawer, Form, Input, Row, Select, Space, InputNumber } fro
 import { useProductStore } from "@/app/store/products";
 import { ProductDto } from "@/app/types/productDto";
 
-const { Option } = Select;
+// const { Option } = Select;
 
 type Props = {
   open: boolean;
@@ -17,10 +17,10 @@ export default function AddHomeProductDrawer({ open, onClose }: Props) {
   const [form] = Form.useForm();
 
   const onSubmit = useCallback(
-    (v) => {
+    (v: ProductDto) => {
       sendAdd(v);
-      //   onClose();
-      console.log(v);
+      onClose();
+      // console.log(v);
     },
     [form, sendAdd, onClose]
   );
