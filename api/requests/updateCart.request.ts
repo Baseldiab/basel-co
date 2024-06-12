@@ -1,7 +1,7 @@
 // UPDATE_USER_CARTS
 
 import { UPDATE_USER_CARTS } from "../constants";
-import { CartDto } from "@/components/types/cartDto";
+import { CartDto } from "@/app/types/cartDto";
 
     export async function update_cart(data_form: CartDto, userId: string | number) {
         try {

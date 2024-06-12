@@ -1,6 +1,6 @@
 // ADD_NEW_PRODUCT
 
-import { ProductDto } from "@/components/types/productDto";
+import { ProductDto } from "@/app/types/productDto";
 import { ADD_NEW_PRODUCT } from "../constants";
 
     export async function add_new_products(data_form: ProductDto) {

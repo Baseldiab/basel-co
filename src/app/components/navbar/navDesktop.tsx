@@ -1,23 +1,21 @@
 import React from "react";
-import { Col, Row } from "antd";
 import NavbarLogo from "./navbarLogo";
-import DropdownItem from "../dropdown/dropdown";
+// import DropdownItem from "../dropdown/dropdown";
+import Link from "next/link";
+import { FaCartArrowDown } from "react-icons/fa";
 
 export default function NavDesktop() {
   return (
-    <Row className={"myContainer"}>
-      {/* RIGHT SIDE OF NAV KIDS , WOMEN */}
-      <Col span={10}>
-        <DropdownItem />
-      </Col>
-
-      {/* LOGO */}
-      <Col span={4}>
-        <NavbarLogo />
-      </Col>
-
-      {/* LEFT SIDE OF NAV CART, WISH AND LOGIN */}
-      <Col span={10}></Col>
-    </Row>
+    <div className="myContainer flex justify-between items-center py-4 bg-gray-100 shadow-lg">
+      <NavbarLogo />
+      <div className="flex justify-between items-center gap-5">
+        <Link className="text-base font-bold" href={"/"}>
+          {"Products"}
+        </Link>
+        <Link href={"/cart"}>
+          <FaCartArrowDown className="text-lg" />
+        </Link>
+      </div>
+    </div>
   );
 }

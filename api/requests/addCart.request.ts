@@ -1,7 +1,7 @@
 // ADD_NEW_CART
 
 import { ADD_NEW_CART } from "../constants";
-import { CartDto } from "@/components/types/cartDto";
+import { CartDto } from "@/app/types/cartDto";
 
     export async function add_new_cart(data_form: CartDto) {
         try {
