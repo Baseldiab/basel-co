@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useCallback, useMemo } from "react";
-import { Button, Col, Drawer, Form, Input, Row, Space, InputNumber } from "antd";
+import { Button, Col, Drawer, Form, Input, Row, Space, InputNumber, Upload } from "antd";
 import { useProductStore } from "@/app/store/products";
 import { ProductDto } from "@/app/types/productDto";
+import { PlusOutlined } from "@ant-design/icons";
 
 // const { Option } = Select;
 
@@ -70,6 +71,15 @@ export default function AddHomeProductDrawer({ open, onClose }: Props) {
           size={"large"}
         >
           <Row gutter={16}>
+            <Col span={24} className="flex justify-center items-center">
+              <Upload action="/upload.do" listType="picture-card">
+                <button style={{ border: 0, background: "none" }} type="button">
+                  <PlusOutlined />
+                  <div style={{ marginTop: 8 }}>Upload</div>
+                </button>
+              </Upload>
+            </Col>
+
             <Col span={12}>
               <Form.Item
                 name="title"
