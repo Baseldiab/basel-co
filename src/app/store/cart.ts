@@ -48,27 +48,20 @@ export const useCartStore = create<CartState>()(
         const products = useProductStore.getState().list;
         const foundProduct = currentLocalStorageList.find((e) => e.id.toString() === productItem.id.toString());
     
-        console.log("Products:", products);
-        console.log("Found Product:", foundProduct);
-    
         if (foundProduct) {
           foundProduct.quantity = Number(foundProduct.quantity) + 1;
-          console.log("Updated found product quantity:", foundProduct.quantity);
         } else {
           const productClone = { ...productItem, quantity: 1, idAddedToCart: true };
           currentLocalStorageList.push(productClone);
-          console.log("Added new product to localStorageList:", productClone);
+          
         }
     
-        console.log("LocalStorageList before setting to localStorage:", currentLocalStorageList);
         localStorage.setItem("cart", JSON.stringify(currentLocalStorageList));
-        console.log("Updated localStorage");
     
         set({
           list: [...currentList],
           localStorageList: [...currentLocalStorageList]
         });
-        console.log("Updated state");
       } catch (error) {
         console.error("Error in sendAddToCart:", error);
       }
