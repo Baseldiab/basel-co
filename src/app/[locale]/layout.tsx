@@ -7,6 +7,7 @@ import { TLocale } from "../interfaces/global.interfaces";
 import getTranslations from "../i18n";
 import Navbar from "../components/navbar/navbar";
 import { build_meta_data } from "./util/build.meta.data";
+import Footer from "../components/footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,7 +41,12 @@ export default function RootLayout({
             locale: locale,
           }}
         />
-        <main className="min-h-screen my-10">{children}</main>
+        <main className="main_content my-6">{children}</main>
+        <Footer
+          params={{
+            locale: locale,
+          }}
+        />
       </body>
     </html>
   );

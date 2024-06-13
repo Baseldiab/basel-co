@@ -10,4 +10,5 @@ export interface CartState {
     sendAddToCart: (v: CartDto , productItem: ProductModel) => void;
     sendUpdateCart: (v: CartDto , productId: string, qty: number) => void;
     sendDeleteItemCart: (id: string) => void;
+    calculateTotalPrice: () => void;
   }

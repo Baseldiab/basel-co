@@ -6,4 +6,9 @@ export type ProductModel = {
     description: string;
     image: string;
     quantity?:  number;
+    idAddedToCart?: boolean;
+    rating: {
+        rate: number,
+        count: number
+    }
 }

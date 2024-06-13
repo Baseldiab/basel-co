@@ -1,11 +1,15 @@
 "use client";
 
 import { useProductStore } from "@/app/store/products";
-import { Button, Col, Row, Card, Image, Input } from "antd";
+import { Button, Col, Row, Card, Image, Input, Rate } from "antd";
 import React, { useEffect, useState } from "react";
 import LoadingLayout from "./layout/loading.layout";
 import Link from "next/link";
 import AddHomeProductDrawer from "./drawers/addHomeProductDrawer";
+import { successNotification } from "./modals/notifications";
+import { CartDto } from "@/app/types/cartDto";
+import { useCartStore } from "@/app/store/cart";
+import { ProductModel } from "@/app/types/productModel";
 
 const { Meta } = Card;
 const { Search } = Input;
@@ -20,6 +24,8 @@ export default function HomePage() {
     sendGetCategoryProducts,
     sendGetSearchList,
   } = useProductStore();
+
+  const { sendAddToCart } = useCartStore();
 
   // STATES
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
@@ -56,27 +62,41 @@ export default function HomePage() {
 
   // console.log(list, categories);
 
+  const AddToCart = (item: ProductModel) => {
+    const payload: CartDto = {
+      userId: 2,
+      date: "2024-6-13",
+      products: [{ productId: item.id, quantity: 1 }],
+    };
+
+    sendAddToCart(payload, item);
+    successNotification("Added to cart successfully");
+  };
+
   return isLoading ? (
     <LoadingLayout length={10} loading={true} />
   ) : (
     <section className="myContainer">
-      <Row className="!gap-3" justify="space-between" align="top">
-        <Col className="max-md:hidden flex flex-col gap-3" span={4}>
-          <Button onClick={() => sendGetProductsList()} className="uppercase font-medium">
+      <Row className="lg:!gap-3 gap-1.5" justify="space-between" align="top">
+        <Col className="max-md:hidden flex flex-col gap-3" md={6} xl={4}>
+          <Button
+            onClick={() => sendGetProductsList()}
+            className="uppercase font-medium text-sm lg:text-base max-w-[200px]"
+          >
             All
           </Button>
           {categories.map((category: string, index: number) => (
             <Button
               key={`category-${index}`}
               onClick={() => sendGetCategoryProducts(category)}
-              className="uppercase font-medium"
+              className="uppercase font-medium text-sm lg:text-base max-w-[200px]"
             >
               {category}
             </Button>
           ))}
         </Col>
 
-        <Col md={19} xs={24}>
+        <Col md={17} xs={24} xl={19}>
           <Row className="w-full" justify="space-between" gutter={[8, 8]}>
             <Col>
               <Search
@@ -93,9 +113,9 @@ export default function HomePage() {
             </Col>
           </Row>
 
-          <Row justify={"space-between"} className="mt-8" gutter={[16, 16]}>
+          <Row justify={"center"} className="lg:mt-8 mt-5" gutter={[16, 16]}>
             {list.map((product: any, index: number) => (
-              <Col md={8} sm={12} xs={24} key={`product-${index}`}>
+              <Col md={12} lg={8} xl={6} sm={12} xs={24} key={`product-${index}`}>
                 <Card
                   hoverable
                   className=""
@@ -111,18 +131,36 @@ export default function HomePage() {
                   }
                 >
                   <Meta
-                    title={ <Link
-                      href={`/product/${product.id}`}
-                      className="flex justify-between items-center"
-                    > product.title </Link>}
-                    description={
+                    title={
                       <Link
                         href={`/product/${product.id}`}
                         className="flex justify-between items-center"
                       >
-                        <span className="capitalize">{product.category}</span>
-                        <span className="font-medium">{`${product.price}$`}</span>
+                        {product.title}
                       </Link>
+                    }
+                    description={
+                      <>
+                        <Link
+                          href={`/product/${product.id}`}
+                          className="flex justify-between items-center"
+                        >
+                          <p className="capitalize">{product.category}</p>
+                          <p className="font-medium">
+                            {`${product.price}`} <span className="text-red-500">$</span>
+                          </p>
+                        </Link>
+
+                        <Rate
+                          className="my-1"
+                          disabled
+                          defaultValue={Math.round(product.rating.rate * 2) / 2}
+                        />
+
+                        <Button className="mt-2" onClick={() => AddToCart(product)}>
+                          Add To Cart
+                        </Button>
+                      </>
                     }
                   />
                 </Card>

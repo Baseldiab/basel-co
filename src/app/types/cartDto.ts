@@ -3,7 +3,7 @@ export type CartDto = {
     date: string;
     products: [
         {
-            productId: number;
+            productId: number |string;
             quantity: number;
         }
     ]
