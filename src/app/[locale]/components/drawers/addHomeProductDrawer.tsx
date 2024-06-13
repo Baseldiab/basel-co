@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useCallback, useMemo, useState } from "react";
-import { Button, Col, Drawer, Form, Input, Row, Select, Space, InputNumber } from "antd";
+import React, { useCallback, useMemo } from "react";
+import { Button, Col, Drawer, Form, Input, Row, Space, InputNumber } from "antd";
 import { useProductStore } from "@/app/store/products";
 import { ProductDto } from "@/app/types/productDto";
 
@@ -27,7 +27,7 @@ export default function AddHomeProductDrawer({ open, onClose }: Props) {
 
   const initialValue = useMemo(() => {
     const init = {
-      photo: "",
+      // photo: "",
       category: "",
       title: "",
       description: "",
@@ -65,7 +65,7 @@ export default function AddHomeProductDrawer({ open, onClose }: Props) {
         <Form
           layout="vertical"
           form={form}
-          initial={initialValue as any}
+          initialValues={initialValue}
           onFinish={onSubmit}
           size={"large"}
         >
